@@ -24,6 +24,11 @@ def test_model_diversity_doc_exists_and_stays_optional() -> None:
     assert "not the repo's default workflow" in text
     assert "bypass verification" in text
     assert "commit local secrets" in text
+    assert "`code-writer` -> `deepseek-v4-pro[1m]`" in text
+    assert "`code-reviewer` -> `deepseek-v4-pro[1m]`" in text
+    assert "`debug-investigator` -> `deepseek-v4-pro[1m]`" in text
+    assert "`docs-reviewer` -> `deepseek-v4-pro[1m]`" in text
+    assert "prefer explicit model selection over `auto`" in text
 
 
 def test_gitignore_blocks_local_secret_bearing_files() -> None:
@@ -86,6 +91,12 @@ def test_example_settings_file_uses_placeholders_only() -> None:
 
     assert env["ANTHROPIC_BASE_URL"] == "https://api.deepseek.com/anthropic"
     assert env["ANTHROPIC_AUTH_TOKEN"] == "<DEEPSEEK_API_KEY_FROM_LOCAL_ENV_OR_SECRET_MANAGER>"
+    assert env["ANTHROPIC_MODEL"] == "deepseek-v4-pro[1m]"
+    assert env["ANTHROPIC_DEFAULT_OPUS_MODEL"] == "deepseek-v4-pro[1m]"
+    assert env["ANTHROPIC_DEFAULT_SONNET_MODEL"] == "deepseek-v4-pro[1m]"
+    assert env["ANTHROPIC_DEFAULT_HAIKU_MODEL"] == "deepseek-v4-pro[1m]"
+    assert env["CLAUDE_CODE_SUBAGENT_MODEL"] == "deepseek-v4-pro[1m]"
+    assert "deepseek-v4-flash" not in example
     assert "sk-" not in example
 
 

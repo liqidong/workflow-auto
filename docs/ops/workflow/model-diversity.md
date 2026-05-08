@@ -21,6 +21,17 @@ The Codex or GPT main thread still owns:
 - merge decision
 - tag or release decision
 
+## Recommended Model Mapping
+
+For this optional lane, prefer explicit model selection over `auto`.
+
+Recommended default mapping:
+
+- `code-writer` -> `deepseek-v4-pro[1m]`
+- `code-reviewer` -> `deepseek-v4-pro[1m]`
+- `debug-investigator` -> `deepseek-v4-pro[1m]`
+- `docs-reviewer` -> `deepseek-v4-pro[1m]`
+
 ## Good Fits
 
 Claude CLI + DeepSeek may be used for:

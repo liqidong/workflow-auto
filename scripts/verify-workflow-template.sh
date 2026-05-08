@@ -6,6 +6,7 @@ required_files=(
   "README.md"
   "CHANGELOG.md"
   "docs/releases/v0.1.0.md"
+  "docs/releases/v0.1.1.md"
   ".github/workflows/verify.yml"
   ".agents/skills/goi-workflow/SKILL.md"
   ".codex/skills/goi-workflow/SKILL.md"
@@ -33,8 +34,10 @@ grep -q "gstack stage:" AGENTS.md
 grep -q "workflow-auto" README.md
 grep -q "workflow-base" README.md
 grep -q "badge.svg" README.md
+grep -q "## 0.1.1 - 2026-05-09" CHANGELOG.md
 grep -q "0.1.0 - 2026-05-09" CHANGELOG.md
 grep -q "## What this release is" docs/releases/v0.1.0.md
+grep -q "## What this release is" docs/releases/v0.1.1.md
 grep -q "pull_request" .github/workflows/verify.yml
 grep -q "openspec validate --specs" .github/workflows/verify.yml
 grep -q "ripgrep" .github/workflows/verify.yml

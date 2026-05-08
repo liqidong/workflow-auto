@@ -21,9 +21,11 @@ def test_changelog_exists_with_v010_entry() -> None:
     changelog = _read("CHANGELOG.md")
 
     assert "# Changelog" in changelog
+    assert "## 0.1.1 - 2026-05-09" in changelog
     assert "## 0.1.0 - 2026-05-09" in changelog
     assert "GitHub Actions verification" in changelog
     assert "bootstrap contract coverage" in changelog
+    assert "execution-quality guardrails for implementation, debugging, hardening," in changelog
     assert "@fission-ai/openspec@1.3.1" in changelog
 
 
@@ -40,6 +42,24 @@ def test_release_note_exists_and_covers_required_sections() -> None:
     ):
         assert heading in release
 
+    assert "execution-quality guardrails for implementation, debugging, hardening," not in release
+
+
+def test_v011_release_note_exists_and_covers_required_sections() -> None:
+    release = _read("docs/releases/v0.1.1.md")
+
+    for heading in (
+        "## What this release is",
+        "## What is included",
+        "## How to verify locally",
+        "## How to copy or adopt the template",
+        "## Known residual risks",
+        "## Next recommended work",
+    ):
+        assert heading in release
+
+    assert "execution-quality guardrails for implementation, debugging, hardening," in release
+
 
 def test_verify_workflow_pins_openspec_and_installs_ripgrep() -> None:
     workflow = _read(".github/workflows/verify.yml")
@@ -54,5 +74,7 @@ def test_release_docs_are_wired_into_repo_surfaces() -> None:
 
     assert "CHANGELOG.md" in readme
     assert "docs/releases/v0.1.0.md" in readme
+    assert "docs/releases/v0.1.1.md" in readme
     assert '"CHANGELOG.md"' in verifier
     assert '"docs/releases/v0.1.0.md"' in verifier
+    assert '"docs/releases/v0.1.1.md"' in verifier

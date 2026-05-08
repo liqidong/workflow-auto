@@ -181,10 +181,7 @@ Triggered self-improvement events must not be silently omitted.
 
 ## Current Program Focus
 
-This host repo intentionally does not fix a product-domain mainline.
-
-Its current mainline is the reusable `workflow-base` template itself, hosted in
-the `workflow-auto` repository.
+This template intentionally does not fix a product-domain mainline.
 
 The active repository must define current program focus in:
 
@@ -197,6 +194,9 @@ Those surfaces should answer:
 - what is planned but not yet shipped
 - which work streams are optimization, research, or evidence lanes
 - which machine-readable artifacts are authoritative
+
+Copied repositories must replace inherited host-specific identity and inventory
+in those two surfaces before treating them as canonical.
 
 Keep the multi-agent quality default: one writer for one coherent milestone and
 one fresh reviewer per checkpoint.

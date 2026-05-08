@@ -4,6 +4,7 @@ set -euo pipefail
 required_files=(
   "AGENTS.md"
   "README.md"
+  ".github/workflows/verify.yml"
   ".agents/skills/goi-workflow/SKILL.md"
   ".codex/skills/goi-workflow/SKILL.md"
   ".claude/skills/goi-workflow/SKILL.md"
@@ -28,6 +29,8 @@ grep -q "light routing / heavy evidence" .agents/skills/goi-workflow/SKILL.md
 grep -q "gstack stage:" AGENTS.md
 grep -q "workflow-auto" README.md
 grep -q "workflow-base" README.md
+grep -q "pull_request" .github/workflows/verify.yml
+grep -q "openspec validate --specs" .github/workflows/verify.yml
 grep -q "## Current Mainline" openspec/specs/project-mainline-routing/spec.md
 grep -q "## Shipped Surfaces" openspec/specs/project-mainline-routing/spec.md
 grep -q "## Truth Source Hierarchy" openspec/specs/project-mainline-routing/spec.md

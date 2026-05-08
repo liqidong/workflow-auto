@@ -71,6 +71,7 @@ def test_readme_declared_key_surfaces_exist() -> None:
     readme = _read("README.md")
     required_paths = (
         "AGENTS.md",
+        ".github/workflows/verify.yml",
         ".agents/skills/goi-workflow/SKILL.md",
         ".codex/skills/goi-workflow/SKILL.md",
         ".claude/skills/goi-workflow/SKILL.md",

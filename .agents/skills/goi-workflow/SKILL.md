@@ -268,10 +268,7 @@ implementation/debug/hardening/smoke:
 
 ## Current Program Focus
 
-This host repo intentionally does not hardcode a product domain mainline.
-
-Its current mainline is the reusable `workflow-base` template itself, hosted in
-the `workflow-auto` repository.
+This template intentionally does not hardcode a product domain mainline.
 
 Use these surfaces as the active mainline contract:
 
@@ -283,6 +280,10 @@ If those surfaces are missing, stale, or disagree:
 - pause route assumptions
 - repair the mainline description first
 - then continue with implementation, blocker, or landing work
+
+If this template is copied into another repository, that repository must
+replace any inherited host-specific identity and current-mainline inventory in
+those two surfaces before treating them as canonical.
 
 ## Closeout
 

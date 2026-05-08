@@ -20,6 +20,11 @@ The current mainline is the template's own auditable operating surface:
 canonical routing skill, compatibility shims, OpenSpec wrappers, workflow
 docs, verification scripts, and contract tests.
 
+Copied repositories must replace this host-repo identity and current-mainline
+inventory with their own product, platform, library, or internal workflow
+posture. A copied repo must not continue to describe itself as the
+`workflow-auto` host repo unless it actually is this host repo.
+
 ## Shipped Surfaces
 
 - `.agents/skills/goi-workflow/SKILL.md`
@@ -60,9 +65,7 @@ docs, verification scripts, and contract tests.
    for auditable operating detail
 6. `AGENTS.md` for repo-default posture and operator reminders
 7. compatibility shims under `.codex` and `.claude` for discovery only
-
 ## Requirements
-
 ### Requirement: The repo SHALL define a current mainline explicitly
 
 The repo SHALL define what is currently considered the mainline.
@@ -134,8 +137,14 @@ The repo SHALL maintain a current-state inventory that maps:
 - primary truth sources
 - known gaps or follow-up surfaces
 
-#### Scenario: Future work starts from the inventory
+For the live host repo, the current-state inventory SHALL include the repo's
+public identity and the current mainline it is actually hosting.
 
-- **WHEN** a later change starts
-- **THEN** the implementer SHALL be able to identify current support, planned
-  work, and authoritative evidence without reading archive history first
+#### Scenario: Host repo inventory is concrete
+
+- **WHEN** a reader opens `openspec/specs/project-mainline-routing/spec.md`
+- **THEN** they SHALL be able to identify the public repo name, reusable
+  template name, current mainline, shipped surfaces, planned surfaces, support
+  lanes, and truth-source hierarchy
+- **AND** they SHALL not see only abstract adopter guidance
+

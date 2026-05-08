@@ -26,6 +26,8 @@ Use this checklist when copying the reusable `workflow-base` template out of
 ## Customization Checklist
 
 - Replace generic repository positioning in `README.md`.
+- Replace the README badge URL when the adopted repository slug differs from
+  `liqidong/workflow-auto`.
 - Fill in `openspec/specs/project-mainline-routing/spec.md`.
 - Confirm branch naming matches the real integration branch.
 - Confirm `.agents` stays canonical and `.codex` and `.claude` stay

@@ -32,6 +32,7 @@ posture. A copied repo must not continue to describe itself as the
 - `.claude/skills/goi-workflow/SKILL.md`
 - OpenSpec wrapper skills under `.codex/skills/openspec-*`
 - OpenSpec wrapper skills under `.claude/skills/openspec-*`
+- Claude-specific command entrypoints under `.claude/commands/opsx/`
 - workflow docs under `docs/ops/workflow/`
 - `scripts/check-host-workflow-deps.sh`
 - `scripts/verify-workflow-template.sh`
@@ -65,6 +66,12 @@ posture. A copied repo must not continue to describe itself as the
    for auditable operating detail
 6. `AGENTS.md` for repo-default posture and operator reminders
 7. compatibility shims under `.codex` and `.claude` for discovery only
+
+Claude/Codex asymmetry note:
+
+- `.claude/commands/opsx/` exists because Claude exposes command entrypoints in
+  addition to skill entrypoints
+- `.codex` intentionally uses skills only and does not mirror a command surface
 ## Requirements
 ### Requirement: The repo SHALL define a current mainline explicitly
 
@@ -147,4 +154,3 @@ public identity and the current mainline it is actually hosting.
   template name, current mainline, shipped surfaces, planned surfaces, support
   lanes, and truth-source hierarchy
 - **AND** they SHALL not see only abstract adopter guidance
-

@@ -16,6 +16,7 @@ Use this checklist when copying the reusable `workflow-base` template out of
 - `docs/ops/workflow/routing-table.md`
 - `docs/ops/workflow/evidence.md`
 - `docs/ops/workflow/routing-checks.md`
+- `docs/ops/workflow/execution-quality.md`
 - `docs/ops/workflow/multi-agent-execution.md`
 - `scripts/check-host-workflow-deps.sh`
 - `scripts/verify-workflow-template.sh`

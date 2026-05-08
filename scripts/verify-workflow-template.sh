@@ -15,6 +15,7 @@ required_files=(
   "docs/ops/workflow/routing-table.md"
   "docs/ops/workflow/evidence.md"
   "docs/ops/workflow/routing-checks.md"
+  "docs/ops/workflow/execution-quality.md"
   "docs/ops/workflow/multi-agent-execution.md"
   "docs/ops/workflow/checklist.md"
   "docs/ops/superpowers-capability-adoption.md"
@@ -41,6 +42,9 @@ grep -q "@fission-ai/openspec@1.3.1" .github/workflows/verify.yml
 grep -q "## Current Mainline" openspec/specs/project-mainline-routing/spec.md
 grep -q "## Shipped Surfaces" openspec/specs/project-mainline-routing/spec.md
 grep -q "## Truth Source Hierarchy" openspec/specs/project-mainline-routing/spec.md
+grep -q "Think Before Coding" docs/ops/workflow/execution-quality.md
+grep -q "do not replace" docs/ops/workflow/execution-quality.md
+grep -q "do not create a new route" .agents/skills/goi-workflow/SKILL.md
 grep -q "compatibility shim" .claude/skills/goi-workflow/SKILL.md
 grep -q "openspec archive" .codex/skills/openspec-archive-change/SKILL.md
 grep -q "descriptive analysis" docs/ops/superpowers-capability-adoption.md

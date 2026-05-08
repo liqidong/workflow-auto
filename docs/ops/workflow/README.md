@@ -14,6 +14,8 @@ Use this directory by layer:
 - `routing-table.md`: auditable route decision table
 - `evidence.md`: route evidence and skipped-verification contract
 - `routing-checks.md`: manual snapshot checks for routing drift
+- `execution-quality.md`: execution-quality guardrails for coding and blocker
+  work after route selection
 - `multi-agent-execution.md`: canonical starting pattern for repo-local
   multi-agent execution
 - `checklist.md`: lightweight non-Python template verification
@@ -121,9 +123,11 @@ Use the repo workflow as:
    OpenSpec actions as a separate control surface
 7. use execution light mode during implementation/debug, then return to
    `landing` when blockers are cleared
-8. treat any adopted external skill as an execution aid, not a replacement for
+8. apply execution-quality guardrails during implementation/debug/fix work
+   without turning them into a new workflow
+9. treat any adopted external skill as an execution aid, not a replacement for
    the route decision
-9. if a delegation-heavy or parallel-dispatch launch is recommended, ask the
+10. if a delegation-heavy or parallel-dispatch launch is recommended, ask the
    user before starting it
 
 Repository-specific mainline policy belongs in:

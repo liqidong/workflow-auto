@@ -266,6 +266,20 @@ implementation/debug/hardening/smoke:
 - ask the user before starting a delegation-heavy or parallel-dispatch mode
 - keep `agents.max_depth = 1`
 
+## Execution Quality Guardrails
+
+During implementation, debugging, hardening, review-finding fixes, and blocker
+fixes, apply the repo's execution-quality guardrails:
+
+- think before coding
+- simplicity first
+- surgical changes
+- goal-driven execution
+
+These guardrails constrain how work is executed after route selection.
+These guardrails do not create a new route.
+They do not replace GOI routing, OpenSpec, `gstack`, review, or QA.
+
 ## Current Program Focus
 
 This template intentionally does not hardcode a product domain mainline.

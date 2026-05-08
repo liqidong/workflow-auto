@@ -160,6 +160,7 @@ in `AGENTS.md` and `docs/ops/git-worktree-layout.md` together.
 - [docs/ops/workflow/routing-table.md](./docs/ops/workflow/routing-table.md)
 - [docs/ops/workflow/evidence.md](./docs/ops/workflow/evidence.md)
 - [docs/ops/workflow/routing-checks.md](./docs/ops/workflow/routing-checks.md)
+- [docs/ops/workflow/execution-quality.md](./docs/ops/workflow/execution-quality.md)
 - [docs/ops/workflow/multi-agent-execution.md](./docs/ops/workflow/multi-agent-execution.md)
 - [docs/ops/workflow/checklist.md](./docs/ops/workflow/checklist.md)
 - [CHANGELOG.md](./CHANGELOG.md)

@@ -37,6 +37,7 @@ Examples:
 - compatibility shims under `.codex` and `.claude`
 - OpenSpec wrappers for explore, propose, apply, and archive
 - workflow operating docs under `docs/ops/workflow/`
+- GitHub Actions verification under `.github/workflows/verify.yml`
 - live OpenSpec specs for workflow routing and project mainline posture
 - host dependency and shell verification scripts under `scripts/`
 - pytest contract tests under `tests/`
@@ -156,6 +157,7 @@ in `AGENTS.md` and `docs/ops/git-worktree-layout.md` together.
 - [docs/ops/workflow/routing-checks.md](./docs/ops/workflow/routing-checks.md)
 - [docs/ops/workflow/multi-agent-execution.md](./docs/ops/workflow/multi-agent-execution.md)
 - [docs/ops/workflow/checklist.md](./docs/ops/workflow/checklist.md)
+- [.github/workflows/verify.yml](./.github/workflows/verify.yml)
 - [scripts/check-host-workflow-deps.sh](./scripts/check-host-workflow-deps.sh)
 - [scripts/verify-workflow-template.sh](./scripts/verify-workflow-template.sh)
 - [openspec/specs/workflow-routing-policy/spec.md](./openspec/specs/workflow-routing-policy/spec.md)
@@ -179,5 +181,8 @@ The shell verifier checks:
 - key files exist
 - repo identity and mainline headings exist
 - obvious stale source strings are gone
+
+The GitHub Actions workflow runs the same verification chain on `push` and
+`pull_request`.
 
 Keep both.

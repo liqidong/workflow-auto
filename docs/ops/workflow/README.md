@@ -20,12 +20,9 @@ Use this directory by layer:
 - `rule-reduction-checklist.md`: anti-duplication review reference
 - `decisions/*.md`: rationale and durable workflow decisions
 
-Current host-repo identity:
-
-- `workflow-auto` is the repository that hosts the reusable `workflow-base`
-  template
-- the current mainline is the template's own routing, evidence, verification,
-  and compatibility surfaces
+Host-specific repository identity belongs in the top-level `README.md` and
+`openspec/specs/project-mainline-routing/spec.md`, not in the generic routing
+surfaces in this directory.
 
 ## Layer Model
 
@@ -91,9 +88,10 @@ Meaning:
 - what is blocked now
 - what the next bounded move is
 
-This host repo defines the template itself as the current mainline. Each
-adopting repository must replace the generic inventory with its own shipped
-surfaces, planned surfaces, evidence lanes, and truth-source hierarchy.
+This template host repo defines the template itself as the current mainline.
+Each adopting repository must replace the inherited inventory with its own
+shipped surfaces, planned surfaces, evidence lanes, and truth-source
+hierarchy before treating those surfaces as canonical.
 
 ### Layer 4: Decision Layer
 

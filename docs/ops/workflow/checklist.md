@@ -7,6 +7,7 @@ Use this checklist when copying the reusable `workflow-base` template out of
 
 - `AGENTS.md`
 - `README.md`
+- `.github/workflows/verify.yml`
 - `.agents/skills/goi-workflow/SKILL.md`
 - `.codex/skills/goi-workflow/SKILL.md`
 - `.claude/skills/goi-workflow/SKILL.md`

@@ -48,14 +48,6 @@ architecture, security, deployment, data-contract work, blocker or correction
 work, repeated failure, multi-agent launch, landing work, or when the user
 explicitly asks for it.
 
-#### Scenario: Route trace includes route mode and GOI tuple
-
-- **WHEN** a non-trivial task starts
-- **THEN** the agent SHALL report the route mode
-- **AND** the agent SHALL report `gstack` posture, OpenSpec posture, active
-  OpenSpec control surface when applicable, and triggered self-improvement
-  handling when applicable
-
 #### Scenario: Routine work uses a short visible trace
 
 - **WHEN** a task is low or medium risk and does not involve workflow-sensitive
@@ -131,3 +123,4 @@ mismatch, and small local code cleanup.
 - **WHEN** routing policy changes
 - **THEN** the reviewer SHALL be able to check representative route cases in
   `docs/ops/workflow/routing-checks.md`
+

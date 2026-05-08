@@ -128,7 +128,8 @@ Hard gates:
   implementation.
 - Active OpenSpec changes should be inherited rather than replanned unless
   scope changed.
-- Repo-local instruction files are supply-chain sensitive, including
+- Repo-local instruction files are supply-chain sensitive, including, when
+  present,
   `AGENTS.md`, `.agents/skills/**`, `.codex/skills/**`, `.claude/skills/**`,
   `.cursor/rules/**`, `.clinerules/**`, and `docs/ops/workflow/**`.
 - Routing predicates must stay declarative; do not execute generated

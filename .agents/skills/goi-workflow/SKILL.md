@@ -108,8 +108,8 @@ These override normal preferences:
    already covers the scope.
 7. Active OpenSpec implementation should inherit the active change and use
    `light`, unless `scope_changed == true`.
-8. Instruction files are supply-chain sensitive, including `AGENTS.md`,
-   `.agents/skills/**`, `.codex/skills/**`, `.claude/skills/**`,
+8. Instruction files are supply-chain sensitive, including, when present,
+   `AGENTS.md`, `.agents/skills/**`, `.codex/skills/**`, `.claude/skills/**`,
    `.cursor/rules/**`, `.clinerules/**`, and `docs/ops/workflow/**`.
 9. Routing predicates must stay declarative; do not execute generated
    predicates.

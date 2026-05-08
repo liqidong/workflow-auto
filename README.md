@@ -38,6 +38,7 @@ Examples:
 - canonical repo-local routing under `.agents/skills/goi-workflow`
 - compatibility shims under `.codex` and `.claude`
 - OpenSpec wrappers for explore, propose, apply, and archive
+- Claude-specific OpenSpec command entrypoints under `.claude/commands/opsx/`
 - workflow operating docs under `docs/ops/workflow/`
 - GitHub Actions verification under `.github/workflows/verify.yml`
 - live OpenSpec specs for workflow routing and project mainline posture
@@ -127,9 +128,13 @@ When you copy the reusable `workflow-base` template into a new repository:
    surfaces, evidence lanes, and truth-source hierarchy.
 3. Replace the generic sections in `README.md` with your repository's actual
    product, platform, or library posture.
-4. Keep `.agents/skills/goi-workflow/SKILL.md` canonical and keep `.codex` and
+4. Replace the README badge URL when the adopted repository slug differs from
+   `liqidong/workflow-auto`.
+5. Keep `.agents/skills/goi-workflow/SKILL.md` canonical and keep `.codex` and
    `.claude` compatibility shims short.
-5. Run:
+6. Treat `.claude/commands/opsx/` as a Claude-specific command surface.
+   `.codex` uses skill entrypoints only and does not mirror command files.
+7. Run:
 
 ```text
 scripts/check-host-workflow-deps.sh
@@ -155,6 +160,7 @@ in `AGENTS.md` and `docs/ops/git-worktree-layout.md` together.
 - [.agents/skills/goi-workflow/SKILL.md](./.agents/skills/goi-workflow/SKILL.md)
 - [.codex/skills/goi-workflow/SKILL.md](./.codex/skills/goi-workflow/SKILL.md)
 - [.claude/skills/goi-workflow/SKILL.md](./.claude/skills/goi-workflow/SKILL.md)
+- [.claude/commands/opsx/](./.claude/commands/opsx)
 - [docs/ops/workflow/README.md](./docs/ops/workflow/README.md)
 - [docs/ops/workflow/skill-routing.md](./docs/ops/workflow/skill-routing.md)
 - [docs/ops/workflow/routing-table.md](./docs/ops/workflow/routing-table.md)

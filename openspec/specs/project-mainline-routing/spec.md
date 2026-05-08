@@ -33,6 +33,10 @@ posture. A copied repo must not continue to describe itself as the
 - OpenSpec wrapper skills under `.codex/skills/openspec-*`
 - OpenSpec wrapper skills under `.claude/skills/openspec-*`
 - Claude-specific command entrypoints under `.claude/commands/opsx/`
+- optional model-diversity guidance under `docs/ops/workflow/model-diversity.md`
+- optional Claude agent role docs under `.claude/agents/`
+- placeholder-only local settings example under
+  `.claude/settings.deepseek.example.json`
 - workflow docs under `docs/ops/workflow/`
 - `scripts/check-host-workflow-deps.sh`
 - `scripts/verify-workflow-template.sh`
@@ -66,6 +70,8 @@ posture. A copied repo must not continue to describe itself as the
    for auditable operating detail
 6. `AGENTS.md` for repo-default posture and operator reminders
 7. compatibility shims under `.codex` and `.claude` for discovery only
+8. `docs/ops/workflow/model-diversity.md` and `.claude/agents/` for optional
+   Claude CLI + DeepSeek lane posture only
 
 Claude/Codex asymmetry note:
 
@@ -145,12 +151,14 @@ The repo SHALL maintain a current-state inventory that maps:
 - known gaps or follow-up surfaces
 
 For the live host repo, the current-state inventory SHALL include the repo's
-public identity and the current mainline it is actually hosting.
+public identity, the current mainline it is actually hosting, and any shipped
+optional lane surfaces that readers are expected to discover locally.
 
-#### Scenario: Host repo inventory is concrete
+#### Scenario: Host repo inventory stays concrete after optional lane additions
 
-- **WHEN** a reader opens `openspec/specs/project-mainline-routing/spec.md`
-- **THEN** they SHALL be able to identify the public repo name, reusable
-  template name, current mainline, shipped surfaces, planned surfaces, support
-  lanes, and truth-source hierarchy
-- **AND** they SHALL not see only abstract adopter guidance
+- **WHEN** the host repo ships an optional execution or review lane surface
+- **THEN** `openspec/specs/project-mainline-routing/spec.md` SHALL list that
+  surface in the current shipped inventory when it is part of the repo
+- **AND** the inventory SHALL still distinguish optional lanes from default
+  routing or ownership surfaces
+

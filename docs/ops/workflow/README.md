@@ -16,6 +16,8 @@ Use this directory by layer:
 - `routing-checks.md`: manual snapshot checks for routing drift
 - `execution-quality.md`: execution-quality guardrails for coding and blocker
   work after route selection
+- `model-diversity.md`: optional Claude CLI + DeepSeek lane for bounded writer,
+  reviewer, investigator, and docs-consistency work after route selection
 - `multi-agent-execution.md`: canonical starting pattern for repo-local
   multi-agent execution
 - `checklist.md`: lightweight non-Python template verification
@@ -125,9 +127,11 @@ Use the repo workflow as:
    `landing` when blockers are cleared
 8. apply execution-quality guardrails during implementation/debug/fix work
    without turning them into a new workflow
-9. treat any adopted external skill as an execution aid, not a replacement for
-   the route decision
-10. if a delegation-heavy or parallel-dispatch launch is recommended, ask the
+9. treat any adopted external skill or optional model-diversity lane as an
+   execution aid, not a replacement for the route decision
+10. use the optional model-diversity lane only when the main thread still owns
+    route selection, acceptance, final review, and merge or release decisions
+11. if a delegation-heavy or parallel-dispatch launch is recommended, ask the
    user before starting it
 
 Repository-specific mainline policy belongs in:

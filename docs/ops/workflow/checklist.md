@@ -11,12 +11,18 @@ Use this checklist when copying the reusable `workflow-base` template out of
 - `.agents/skills/goi-workflow/SKILL.md`
 - `.codex/skills/goi-workflow/SKILL.md`
 - `.claude/skills/goi-workflow/SKILL.md`
+- `.claude/agents/code-writer.md`
+- `.claude/agents/code-reviewer.md`
+- `.claude/agents/debug-investigator.md`
+- `.claude/agents/docs-reviewer.md`
+- `.claude/settings.deepseek.example.json`
 - `docs/ops/workflow/README.md`
 - `docs/ops/workflow/skill-routing.md`
 - `docs/ops/workflow/routing-table.md`
 - `docs/ops/workflow/evidence.md`
 - `docs/ops/workflow/routing-checks.md`
 - `docs/ops/workflow/execution-quality.md`
+- `docs/ops/workflow/model-diversity.md`
 - `docs/ops/workflow/multi-agent-execution.md`
 - `scripts/check-host-workflow-deps.sh`
 - `scripts/verify-workflow-template.sh`
@@ -32,6 +38,8 @@ Use this checklist when copying the reusable `workflow-base` template out of
 - Confirm branch naming matches the real integration branch.
 - Confirm `.agents` stays canonical and `.codex` and `.claude` stay
   compatibility-only.
+- Confirm the optional Claude CLI + DeepSeek lane stays optional and no local
+  secret-bearing settings file is committed.
 - Confirm no domain-specific route names or absolute source-machine paths
   remain.
 

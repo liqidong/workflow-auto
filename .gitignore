@@ -11,4 +11,7 @@ dist/
 *.egg-info/
 artifacts/
 runtime/
-
+.claude/settings.local.json
+.env
+.env.*
+secrets/

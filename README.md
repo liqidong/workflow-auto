@@ -39,6 +39,11 @@ Examples:
 - compatibility shims under `.codex` and `.claude`
 - OpenSpec wrappers for explore, propose, apply, and archive
 - Claude-specific OpenSpec command entrypoints under `.claude/commands/opsx/`
+- optional Claude CLI + DeepSeek model-diversity guidance under
+  `docs/ops/workflow/model-diversity.md`
+- optional Claude agent role docs under `.claude/agents/`
+- placeholder-only DeepSeek settings example under
+  `.claude/settings.deepseek.example.json`
 - workflow operating docs under `docs/ops/workflow/`
 - GitHub Actions verification under `.github/workflows/verify.yml`
 - live OpenSpec specs for workflow routing and project mainline posture
@@ -67,6 +72,10 @@ It only adds:
 This template may also adopt external skill capabilities selectively, but it
 does not assume a foreign mandatory methodology should replace repo-local
 routing.
+
+An optional Claude CLI + DeepSeek lane may be documented for bounded writing,
+review, or investigation work, but it does not become the default main thread
+or final owner.
 
 ## Bootstrap Exception
 
@@ -167,8 +176,14 @@ in `AGENTS.md` and `docs/ops/git-worktree-layout.md` together.
 - [docs/ops/workflow/evidence.md](./docs/ops/workflow/evidence.md)
 - [docs/ops/workflow/routing-checks.md](./docs/ops/workflow/routing-checks.md)
 - [docs/ops/workflow/execution-quality.md](./docs/ops/workflow/execution-quality.md)
+- [docs/ops/workflow/model-diversity.md](./docs/ops/workflow/model-diversity.md)
 - [docs/ops/workflow/multi-agent-execution.md](./docs/ops/workflow/multi-agent-execution.md)
 - [docs/ops/workflow/checklist.md](./docs/ops/workflow/checklist.md)
+- [.claude/agents/code-writer.md](./.claude/agents/code-writer.md)
+- [.claude/agents/code-reviewer.md](./.claude/agents/code-reviewer.md)
+- [.claude/agents/debug-investigator.md](./.claude/agents/debug-investigator.md)
+- [.claude/agents/docs-reviewer.md](./.claude/agents/docs-reviewer.md)
+- [.claude/settings.deepseek.example.json](./.claude/settings.deepseek.example.json)
 - [CHANGELOG.md](./CHANGELOG.md)
 - [docs/releases/v0.1.0.md](./docs/releases/v0.1.0.md)
 - [docs/releases/v0.1.1.md](./docs/releases/v0.1.1.md)

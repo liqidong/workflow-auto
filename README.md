@@ -165,6 +165,7 @@ in `AGENTS.md` and `docs/ops/git-worktree-layout.md` together.
 - [docs/ops/workflow/checklist.md](./docs/ops/workflow/checklist.md)
 - [CHANGELOG.md](./CHANGELOG.md)
 - [docs/releases/v0.1.0.md](./docs/releases/v0.1.0.md)
+- [docs/releases/v0.1.1.md](./docs/releases/v0.1.1.md)
 - [.github/workflows/verify.yml](./.github/workflows/verify.yml)
 - [scripts/check-host-workflow-deps.sh](./scripts/check-host-workflow-deps.sh)
 - [scripts/verify-workflow-template.sh](./scripts/verify-workflow-template.sh)

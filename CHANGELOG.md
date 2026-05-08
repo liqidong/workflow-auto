@@ -1,11 +1,18 @@
 # Changelog
 
-## Unreleased
+## 0.1.1 - 2026-05-09
 
 ### Added
 
 - execution-quality guardrails for implementation, debugging, hardening,
   review-finding fixes, and blocker fixes
+
+### Verification
+
+- `scripts/check-host-workflow-deps.sh`
+- `scripts/verify-workflow-template.sh`
+- `./.venv/bin/pytest -q`
+- `openspec validate --specs`
 
 ## 0.1.0 - 2026-05-09
 

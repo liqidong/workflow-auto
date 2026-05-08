@@ -1,20 +1,45 @@
-# workflow-base
+# workflow-auto
 
-`workflow-base` is a reusable repository template for a thin-routing,
-heavy-evidence workflow.
+`workflow-auto` is the repository that hosts the reusable `workflow-base`
+template.
 
-It is meant to be copied into a new repository and customized, not treated as a
-finished product or domain-specific starter kit.
+The template is a thin-routing, heavy-evidence workflow scaffold for agentic
+repository work. This host repo hardens and verifies that template so it can be
+copied, audited, and adapted without guessing the mainline.
 
-## What This Template Includes
+## Repository Identity
 
-- repo-local routing under `.agents/skills/goi-workflow`
+- Public repository name: `workflow-auto`
+- Reusable template name: `workflow-base`
+- Current mainline: the reusable thin-routing, heavy-evidence workflow template
+  itself
+
+## Daily Usage
+
+- Question, review, research, or route recommendation -> `assess`
+- Tiny docs typo or path fix -> `micro`
+- Implementation inside accepted scope -> `light`
+- New feature, architecture change, workflow rule, or contract change -> `full`
+- Failing test, user correction, or repeated failure -> `blocker`
+- PR, release, archive, deploy, or closeout -> `landing`
+
+Examples:
+
+- `"review this repo"` -> `assess`
+- `"fix this failing test"` -> `blocker`
+- `"implement this active OpenSpec change"` -> `light`
+- `"add a new feature"` -> `full`
+- `"prepare release/archive"` -> `landing`
+
+## What This Repository Ships
+
+- canonical repo-local routing under `.agents/skills/goi-workflow`
 - compatibility shims under `.codex` and `.claude`
 - OpenSpec wrappers for explore, propose, apply, and archive
 - workflow operating docs under `docs/ops/workflow/`
 - live OpenSpec specs for workflow routing and project mainline posture
-- text-based drift tests under `tests/`
-- lightweight non-Python verification via `scripts/verify-workflow-template.sh`
+- host dependency and shell verification scripts under `scripts/`
+- pytest contract tests under `tests/`
 - local learning logs under `.learnings/`
 
 ## Design Goal
@@ -33,16 +58,32 @@ It only adds:
 - evidence expectations
 - repo-local guardrails
 - compatibility shims for local skill discovery
+- machine-checkable contract tests for drift-prone workflow rules
 
 This template may also adopt external skill capabilities selectively, but it
 does not assume a foreign mandatory methodology should replace repo-local
 routing.
 
+## Bootstrap Exception
+
+During initial template adoption, direct edits on the initial setup branch are
+allowed until all of the following are true:
+
+- README identity is set
+- `openspec/specs/project-mainline-routing/spec.md` is filled with the real
+  inventory
+- the first verification pass succeeds
+
+After bootstrap, switch to the normal `main -> feat/* -> main` worktree
+policy.
+
 ## Expected Upstream Dependencies
 
 This template assumes:
 
-- `openspec` CLI is installed and available on `PATH`
+- `git`, `rg`, and `openspec` are available on `PATH`
+- a local Python virtual environment exists at `.venv`
+- `./.venv/bin/pytest` is available for contract verification
 - upstream skills such as `investigate`, `review`, `qa`, `qa-only`, `ship`,
   `land-and-deploy`, `canary`, `document-release`, `browse`, `plan-*`,
   `context-save`, `context-restore`, and `browser-use` are already available in
@@ -70,20 +111,22 @@ External skill adoption guidance:
 
 ## Start Here
 
-When you copy this template into a new repository:
+When you copy the reusable `workflow-base` template into a new repository:
 
 1. Update [AGENTS.md](./AGENTS.md) only where the new repository genuinely
    needs repo-specific policy.
-2. Fill in [openspec/specs/project-mainline-routing/spec.md](./openspec/specs/project-mainline-routing/spec.md)
-   so the repo states its current mainline, shipped surfaces, planned surfaces,
-   evidence lanes, and truth-source hierarchy.
+2. Fill in
+   [openspec/specs/project-mainline-routing/spec.md](./openspec/specs/project-mainline-routing/spec.md)
+   so the repo states its current mainline, shipped surfaces, planned
+   surfaces, evidence lanes, and truth-source hierarchy.
 3. Replace the generic sections in `README.md` with your repository's actual
    product, platform, or library posture.
-4. Keep `.agents/skills/goi-workflow/SKILL.md` canonical and keep `.codex`
-   compatibility shims short.
+4. Keep `.agents/skills/goi-workflow/SKILL.md` canonical and keep `.codex` and
+   `.claude` compatibility shims short.
 5. Run:
 
 ```text
+scripts/check-host-workflow-deps.sh
 scripts/verify-workflow-template.sh
 ./.venv/bin/pytest -q
 openspec validate --specs
@@ -91,7 +134,7 @@ openspec validate --specs
 
 ## Default Branching Posture
 
-The template defaults to:
+After bootstrap, the template defaults to:
 
 - `main` as the integration branch
 - feature work in `.worktrees/feat-*`
@@ -104,6 +147,8 @@ in `AGENTS.md` and `docs/ops/git-worktree-layout.md` together.
 
 - [AGENTS.md](./AGENTS.md)
 - [.agents/skills/goi-workflow/SKILL.md](./.agents/skills/goi-workflow/SKILL.md)
+- [.codex/skills/goi-workflow/SKILL.md](./.codex/skills/goi-workflow/SKILL.md)
+- [.claude/skills/goi-workflow/SKILL.md](./.claude/skills/goi-workflow/SKILL.md)
 - [docs/ops/workflow/README.md](./docs/ops/workflow/README.md)
 - [docs/ops/workflow/skill-routing.md](./docs/ops/workflow/skill-routing.md)
 - [docs/ops/workflow/routing-table.md](./docs/ops/workflow/routing-table.md)
@@ -111,6 +156,8 @@ in `AGENTS.md` and `docs/ops/git-worktree-layout.md` together.
 - [docs/ops/workflow/routing-checks.md](./docs/ops/workflow/routing-checks.md)
 - [docs/ops/workflow/multi-agent-execution.md](./docs/ops/workflow/multi-agent-execution.md)
 - [docs/ops/workflow/checklist.md](./docs/ops/workflow/checklist.md)
+- [scripts/check-host-workflow-deps.sh](./scripts/check-host-workflow-deps.sh)
+- [scripts/verify-workflow-template.sh](./scripts/verify-workflow-template.sh)
 - [openspec/specs/workflow-routing-policy/spec.md](./openspec/specs/workflow-routing-policy/spec.md)
 - [openspec/specs/project-mainline-routing/spec.md](./openspec/specs/project-mainline-routing/spec.md)
 
@@ -119,16 +166,18 @@ in `AGENTS.md` and `docs/ops/git-worktree-layout.md` together.
 The Python test suite checks:
 
 - canonical route names
-- route trace fields
+- short and full route trace posture
 - hard gates and evidence contract
 - compatibility shim thinness
+- README/file-surface consistency
+- current-mainline inventory presence
 - removal of domain-specific source residue
 - OpenSpec wrapper freshness
 
 The shell verifier checks:
 
 - key files exist
-- key headings exist
+- repo identity and mainline headings exist
 - obvious stale source strings are gone
 
 Keep both.

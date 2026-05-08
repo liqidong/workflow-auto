@@ -59,7 +59,7 @@ Good:
 
 ```yaml
 skipped_verification:
-  check: "pytest -q"
+  check: "./.venv/bin/pytest -q"
   reason: "The required GPU fixture is unavailable on this host."
   residual_risk: "GPU-only execution path is not proven locally."
   follow_up: "Run the same command on the normal GPU validation host."
@@ -101,7 +101,7 @@ or use `--skip-specs`.
 Summary:
 Route:
 Files changed:
-Evidence:
+Verification:
 Skipped verification:
 Residual risk:
 Follow-up:

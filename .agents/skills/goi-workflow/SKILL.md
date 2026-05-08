@@ -134,7 +134,24 @@ for snapshot cases.
 
 ## Step 5: Emit Route Trace
 
-For non-trivial work, show:
+For routine non-high-risk work, default to a short trace:
+
+```text
+Route:
+Why:
+Evidence:
+```
+
+Use the full trace when any of the following are true:
+
+- workflow / instruction files change
+- architecture, security, deployment, or data-contract work is in scope
+- the task starts from blocker, correction, or repeated failure conditions
+- a writer, reviewer, or parallel-dispatch launch is being used
+- the task is landing, release, deploy, archive, or closeout work
+- the user explicitly asks for the complete route trace
+
+Full trace:
 
 ```text
 Route:
@@ -251,7 +268,10 @@ implementation/debug/hardening/smoke:
 
 ## Current Program Focus
 
-This template intentionally does not hardcode a domain mainline.
+This host repo intentionally does not hardcode a product domain mainline.
+
+Its current mainline is the reusable `workflow-base` template itself, hosted in
+the `workflow-auto` repository.
 
 Use these surfaces as the active mainline contract:
 

@@ -33,6 +33,9 @@ def test_non_trivial_route_trace_template_is_present() -> None:
         ]
     )
 
+    for field in ("Route:", "Why:", "Evidence:"):
+        assert field in combined
+
     for field in (
         "Route:",
         "gstack stage:",
@@ -193,4 +196,5 @@ def test_live_workflow_specs_are_not_placeholders() -> None:
     assert placeholder not in mainline_spec
     assert "current mainline" in mainline_spec
     assert "truth-source hierarchy" in mainline_spec
-
+    assert "## Current Mainline" in mainline_spec
+    assert "## Shipped Surfaces" in mainline_spec

@@ -57,9 +57,25 @@ def test_template_includes_lightweight_checklist_and_worktree_doc() -> None:
         encoding="utf-8"
     )
 
+    assert "scripts/check-host-workflow-deps.sh" in checklist
     assert "scripts/verify-workflow-template.sh" in checklist
-    assert "pytest -q" in checklist
+    assert "./.venv/bin/pytest -q" in checklist
     assert "openspec validate --specs" in checklist
     assert "main -> feat/* -> main" in worktree
     assert ".worktrees/" in worktree
 
+
+def test_multi_agent_execution_doc_includes_recovery_rules() -> None:
+    doc = (REPO_ROOT / "docs" / "ops" / "workflow" / "multi-agent-execution.md").read_text(
+        encoding="utf-8"
+    )
+
+    for rule in (
+        "If a writer touches unowned files",
+        "If a reviewer reports a blocking issue",
+        "If acceptance changes",
+        "If two agents conflict",
+        "If verification fails twice",
+        "If a worker modifies OpenSpec tasks without ownership",
+    ):
+        assert rule in doc

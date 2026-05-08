@@ -5,6 +5,62 @@
 Define how this repository states its current mainline, shipped surfaces,
 planned surfaces, evidence lanes, and truth-source hierarchy.
 
+## Current Repository Identity
+
+- Public repository name: `workflow-auto`
+- Reusable template name: `workflow-base`
+- Current repo role: host, verify, and harden the reusable template itself
+
+## Current Mainline
+
+This repository hosts a reusable thin-routing, heavy-evidence workflow
+template for agentic repository work.
+
+The current mainline is the template's own auditable operating surface:
+canonical routing skill, compatibility shims, OpenSpec wrappers, workflow
+docs, verification scripts, and contract tests.
+
+## Shipped Surfaces
+
+- `.agents/skills/goi-workflow/SKILL.md`
+- `.codex/skills/goi-workflow/SKILL.md`
+- `.claude/skills/goi-workflow/SKILL.md`
+- OpenSpec wrapper skills under `.codex/skills/openspec-*`
+- OpenSpec wrapper skills under `.claude/skills/openspec-*`
+- workflow docs under `docs/ops/workflow/`
+- `scripts/check-host-workflow-deps.sh`
+- `scripts/verify-workflow-template.sh`
+- pytest contract tests under `tests/`
+- live OpenSpec specs under `openspec/specs/`
+
+## Planned Surfaces
+
+- CI validation for the same local verification chain
+- broader contract tests for future compatibility shims and adoption edges
+- a copy/bootstrap checklist that can be reused outside this host repo without
+  manual pruning
+
+## Evidence-only / Support Lanes
+
+- `.learnings/`
+- `docs/ops/superpowers-capability-adoption.md`
+- `docs/ops/workflow/multi-agent-execution.md`
+- `docs/ops/agent-orchestration-feedback.md`
+
+## Truth Source Hierarchy
+
+1. `README.md` for repository identity and current mainline summary
+2. `openspec/specs/project-mainline-routing/spec.md` for current inventory and
+   truth-source hierarchy
+3. `.agents/skills/goi-workflow/SKILL.md` for canonical route selection and
+   evidence posture
+4. `openspec/specs/workflow-routing-policy/spec.md` for normative routing
+   requirements
+5. `docs/ops/workflow/routing-table.md` and `docs/ops/workflow/evidence.md`
+   for auditable operating detail
+6. `AGENTS.md` for repo-default posture and operator reminders
+7. compatibility shims under `.codex` and `.claude` for discovery only
+
 ## Requirements
 
 ### Requirement: The repo SHALL define a current mainline explicitly

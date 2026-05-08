@@ -1,5 +1,7 @@
 # workflow-auto
 
+[![Verify](https://github.com/liqidong/workflow-auto/actions/workflows/verify.yml/badge.svg)](https://github.com/liqidong/workflow-auto/actions/workflows/verify.yml)
+
 `workflow-auto` is the repository that hosts the reusable `workflow-base`
 template.
 
@@ -93,6 +95,9 @@ This template assumes:
 This template does not assume a `gstack` shell command exists locally. Treat
 `gstack` as a skill family and workflow posture, not as a mandatory executable.
 
+CI currently pins `@fission-ai/openspec@1.3.1` as the known-good OpenSpec CLI
+version for the verification workflow.
+
 Current host naming guidance:
 
 - use `context-save` / `context-restore` for repo-local save-and-resume flows
@@ -157,6 +162,8 @@ in `AGENTS.md` and `docs/ops/git-worktree-layout.md` together.
 - [docs/ops/workflow/routing-checks.md](./docs/ops/workflow/routing-checks.md)
 - [docs/ops/workflow/multi-agent-execution.md](./docs/ops/workflow/multi-agent-execution.md)
 - [docs/ops/workflow/checklist.md](./docs/ops/workflow/checklist.md)
+- [CHANGELOG.md](./CHANGELOG.md)
+- [docs/releases/v0.1.0.md](./docs/releases/v0.1.0.md)
 - [.github/workflows/verify.yml](./.github/workflows/verify.yml)
 - [scripts/check-host-workflow-deps.sh](./scripts/check-host-workflow-deps.sh)
 - [scripts/verify-workflow-template.sh](./scripts/verify-workflow-template.sh)

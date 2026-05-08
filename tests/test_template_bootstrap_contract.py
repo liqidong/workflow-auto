@@ -62,9 +62,10 @@ def test_github_actions_verification_workflow_exists_and_matches_local_chain() -
     for token in (
         "push:",
         "pull_request:",
+        "ripgrep",
         "python -m venv .venv",
         "pip install -e '.[dev]'",
-        "npm install -g @fission-ai/openspec@latest",
+        "npm install -g @fission-ai/openspec@1.3.1",
         "scripts/check-host-workflow-deps.sh",
         "scripts/verify-workflow-template.sh",
         "./.venv/bin/pytest -q",

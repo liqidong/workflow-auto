@@ -6,6 +6,7 @@ required_files=(
   "README.md"
   ".agents/skills/goi-workflow/SKILL.md"
   ".codex/skills/goi-workflow/SKILL.md"
+  ".claude/skills/goi-workflow/SKILL.md"
   "docs/ops/workflow/README.md"
   "docs/ops/workflow/skill-routing.md"
   "docs/ops/workflow/routing-table.md"
@@ -14,6 +15,7 @@ required_files=(
   "docs/ops/workflow/multi-agent-execution.md"
   "docs/ops/workflow/checklist.md"
   "docs/ops/superpowers-capability-adoption.md"
+  "scripts/check-host-workflow-deps.sh"
   "openspec/specs/workflow-routing-policy/spec.md"
   "openspec/specs/project-mainline-routing/spec.md"
 )
@@ -24,7 +26,12 @@ done
 
 grep -q "light routing / heavy evidence" .agents/skills/goi-workflow/SKILL.md
 grep -q "gstack stage:" AGENTS.md
-grep -q "current mainline" openspec/specs/project-mainline-routing/spec.md
+grep -q "workflow-auto" README.md
+grep -q "workflow-base" README.md
+grep -q "## Current Mainline" openspec/specs/project-mainline-routing/spec.md
+grep -q "## Shipped Surfaces" openspec/specs/project-mainline-routing/spec.md
+grep -q "## Truth Source Hierarchy" openspec/specs/project-mainline-routing/spec.md
+grep -q "compatibility shim" .claude/skills/goi-workflow/SKILL.md
 grep -q "openspec archive" .codex/skills/openspec-archive-change/SKILL.md
 grep -q "descriptive analysis" docs/ops/superpowers-capability-adoption.md
 
@@ -43,4 +50,4 @@ for stale in "avatar_pipeline" "KaoLRM" "single_image_service" "direct_multiview
   fi
 done
 
-echo "workflow template verification passed"
+echo "workflow-auto template verification passed"

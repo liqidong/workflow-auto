@@ -20,6 +20,13 @@ Use this directory by layer:
 - `rule-reduction-checklist.md`: anti-duplication review reference
 - `decisions/*.md`: rationale and durable workflow decisions
 
+Current host-repo identity:
+
+- `workflow-auto` is the repository that hosts the reusable `workflow-base`
+  template
+- the current mainline is the template's own routing, evidence, verification,
+  and compatibility surfaces
+
 ## Layer Model
 
 ### Layer 1: Upstream Tool Layer
@@ -64,8 +71,9 @@ Meaning:
   triggered
 - add repo-local guardrails only when necessary
 
-The older `.codex/skills/goi-workflow/SKILL.md` path is a compatibility surface
-for local history and custom agents. `.agents/skills/goi-workflow/SKILL.md` is
+The older `.codex/skills/goi-workflow/SKILL.md` and
+`.claude/skills/goi-workflow/SKILL.md` paths are compatibility surfaces for
+local history and custom agents. `.agents/skills/goi-workflow/SKILL.md` is
 canonical for current repo skill discovery.
 
 ### Layer 3: Project State
@@ -83,9 +91,9 @@ Meaning:
 - what is blocked now
 - what the next bounded move is
 
-This template intentionally keeps project-state content generic. Each adopting
-repository must define its own shipped surfaces, planned surfaces, evidence
-lanes, and truth-source hierarchy.
+This host repo defines the template itself as the current mainline. Each
+adopting repository must replace the generic inventory with its own shipped
+surfaces, planned surfaces, evidence lanes, and truth-source hierarchy.
 
 ### Layer 4: Decision Layer
 
@@ -103,18 +111,21 @@ Meaning:
 Use the repo workflow as:
 
 1. choose the smallest safe route mode
-2. state one GOI routing tuple: `gstack stage`, `gstack status`, `OpenSpec`
+2. default to the short trace `Route / Why / Evidence`, and expand to the full
+   GOI trace only for high-risk, workflow-sensitive, blocker, multi-agent, or
+   landing work
+3. state one GOI routing tuple: `gstack stage`, `gstack status`, `OpenSpec`
    status, and the active OpenSpec control surface when applicable
-3. surface `self-improvement` only when a real event triggers recording, the
+4. surface `self-improvement` only when a real event triggers recording, the
    task explicitly audits workflow hygiene, or the user asks for capture
-4. execute only the smallest correct current `gstack` stage
-5. when `OpenSpec` is `required` or `inherited`, use the active change and
+5. execute only the smallest correct current `gstack` stage
+6. when `OpenSpec` is `required` or `inherited`, use the active change and
    OpenSpec actions as a separate control surface
-6. use execution light mode during implementation/debug, then return to
+7. use execution light mode during implementation/debug, then return to
    `landing` when blockers are cleared
-7. treat any adopted external skill as an execution aid, not a replacement for
+8. treat any adopted external skill as an execution aid, not a replacement for
    the route decision
-8. if a delegation-heavy or parallel-dispatch launch is recommended, ask the
+9. if a delegation-heavy or parallel-dispatch launch is recommended, ask the
    user before starting it
 
 Repository-specific mainline policy belongs in:

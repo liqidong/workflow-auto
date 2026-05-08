@@ -1,8 +1,9 @@
-# workflow-base AGENTS
+# workflow-auto AGENTS
 
 ## Project Mode
 
-This repository uses a thin-routing, heavy-evidence workflow.
+This repository, `workflow-auto`, hosts the reusable `workflow-base`
+thin-routing, heavy-evidence template.
 
 The repo should optimize for:
 
@@ -10,6 +11,7 @@ The repo should optimize for:
 - explicit evidence before completion claims
 - compatibility with upstream skills instead of duplication
 - reusable repo-local instructions that can be audited and tested
+- machine-verifiable consistency across docs, skills, scripts, and specs
 
 ## Branch Policy
 
@@ -23,6 +25,14 @@ Default rule:
 - merge the finished feature branch back to `main` only after verification
 - use repo-local git worktrees under `.worktrees/` for concurrent branch work
 - keep one active branch per folder
+
+Bootstrap exception:
+
+- during initial template adoption, direct edits on the initial setup branch
+  are allowed until README identity is set, the project-mainline inventory is
+  filled, and the first verification pass succeeds
+- after bootstrap, switch to the normal `main -> feat/* -> main` worktree
+  policy
 
 Canonical reference:
 
@@ -48,7 +58,7 @@ For non-trivial work, use:
 
 This repo uses a light routing / heavy evidence workflow adapter.
 
-For non-trivial work, choose the smallest safe route and emit a route trace:
+For non-trivial work, choose the smallest safe route:
 
 - `assess`: read-only review, research, status, route recommendation, or risk
   assessment
@@ -61,7 +71,24 @@ For non-trivial work, choose the smallest safe route and emit a route trace:
   unexplained regression, or drift
 - `landing`: review, PR, release, deploy, archive, or closeout
 
-Route trace:
+Default short trace:
+
+```text
+Route:
+Why:
+Evidence:
+```
+
+Use the full trace only when:
+
+- workflow / instruction files change
+- architecture, security, deployment, or data-contract work is in scope
+- the task starts from blocker, correction, or repeated failure conditions
+- a writer, reviewer, or parallel-dispatch launch is being used
+- the task is landing, release, deploy, archive, or closeout work
+- the user explicitly asks for the complete route trace
+
+Full trace:
 
 ```text
 Route:
@@ -115,6 +142,17 @@ Learning capture rule:
 - when a learning proves stable, promote it from `.learnings/` into
   `AGENTS.md` or durable docs
 
+Learning capture guidance:
+
+| Case | Capture? |
+| --- | --- |
+| one-off typo | no |
+| same check fails twice | yes |
+| user correction reveals wrong assumption | yes |
+| repo-specific command, path, or environment pitfall | yes |
+| general programming fact | no |
+| workflow decision that should affect future routing | yes |
+
 External skill adoption rule:
 
 - external skill libraries may be used as capability sources
@@ -156,8 +194,8 @@ locked active change:
 
 ## Current Program Focus
 
-This template intentionally does not hardcode a product, platform, or library
-mainline.
+The current mainline of this repository is the reusable workflow template
+itself, not a product or application domain.
 
 The active repository must define its current mainline in:
 

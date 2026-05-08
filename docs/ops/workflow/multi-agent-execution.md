@@ -186,6 +186,19 @@ When the workflow is about to start a more explicit delegation-heavy mode, ask t
 
 If any of those are missing, keep the work in the main thread.
 
+## Recovery Rules
+
+- If a writer touches unowned files, stop integration and inspect, revert, or
+  split the diff before proceeding.
+- If a reviewer reports a blocking issue, the main thread updates invariants
+  and re-briefs the writer.
+- If acceptance changes, stop the current writer and update the active
+  OpenSpec or other control surface first.
+- If two agents conflict, the main thread owns resolution; agents should not
+  negotiate by editing.
+- If verification fails twice, escalate the route to `blocker`.
+- If a worker modifies OpenSpec tasks without ownership, treat it as drift.
+
 ### Evaluator-optimizer
 
 Use evaluator-optimizer only when the evaluation rubric is explicit and the loop

@@ -3,9 +3,9 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "workflow-base"
+name = "workflow-auto"
 version = "0.1.0"
-description = "Reusable thin-routing, heavy-evidence workflow template"
+description = "Repository host for the reusable workflow-base thin-routing, heavy-evidence template"
 requires-python = ">=3.10"
 dependencies = []
 
@@ -18,4 +18,3 @@ py-modules = []
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
-

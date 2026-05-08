@@ -128,7 +128,24 @@ Minimum evidence:
 
 ## GOI Tuple
 
-For non-trivial work, report route mode and GOI tuple together:
+For routine non-high-risk work, default to a short trace:
+
+```text
+Route:
+Why:
+Evidence:
+```
+
+Use the full GOI trace when any of the following are true:
+
+- workflow / instruction files change
+- architecture, security, deployment, or data-contract work is in scope
+- the task starts from blocker, correction, or repeated failure conditions
+- a writer, reviewer, or parallel-dispatch launch is being used
+- the task is landing, release, deploy, archive, or closeout work
+- the user explicitly asks for the complete route trace
+
+Full GOI trace:
 
 ```text
 Route:
@@ -164,7 +181,10 @@ Triggered self-improvement events must not be silently omitted.
 
 ## Current Program Focus
 
-This template intentionally does not fix a domain-specific mainline.
+This host repo intentionally does not fix a product-domain mainline.
+
+Its current mainline is the reusable `workflow-base` template itself, hosted in
+the `workflow-auto` repository.
 
 The active repository must define current program focus in:
 

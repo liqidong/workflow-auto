@@ -25,6 +25,9 @@ Current practical rule:
 - active feature branches live under `.worktrees/`
 - new feature branches should be created under `.worktrees/<branch-slug>`
 - default development flow is `main -> feat/* -> main`
+- merged `feat/*` branches should be cleaned up when no longer needed
+- long-lived `lane/*` branches are explicit exceptions to the short-lived
+  `feat/*` cleanup rule
 
 ## Branch Roles
 
@@ -37,6 +40,13 @@ Current practical rule:
   - bounded feature or workflow work
   - one worktree per feature branch
   - default branch type for new implementation work
+  - merge back to `main` after verification, then clean up when no longer
+    needed
+
+- `lane/*`
+  - long-lived support lane
+  - may carry its own tags and independent evolution
+  - do not auto-delete it under the bounded `feat/*` cleanup rule
 
 ## Naming Rules
 
@@ -52,6 +62,9 @@ Current practical rule:
 - prefer `feat/*` branches for normal work
 - before creating a new worktree, make sure `.worktrees/` stays ignored
 - verify a clean baseline in the new worktree before major edits
+- after a merged `feat/*` branch is no longer needed, clean up the branch and
+  remove its worktree
+- do not apply that cleanup rule automatically to a long-lived `lane/*` branch
 
 ## Standard Operations
 
@@ -75,3 +88,10 @@ git merge --no-ff feat/my-task
 git push origin main
 ```
 
+Clean up a finished feature branch when it is no longer needed:
+
+```text
+git branch -d feat/my-task
+git push origin --delete feat/my-task
+git worktree remove .worktrees/feat-my-task
+```

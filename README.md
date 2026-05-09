@@ -149,6 +149,10 @@ After bootstrap, the template defaults to:
 
 - `main` as the integration branch
 - feature work in `.worktrees/feat-*`
+- merged `feat/*` branches are cleaned up after verification and merge when no
+  longer needed
+- long-lived `lane/*` branches are preserved and managed separately from the
+  short-lived `feat/*` cleanup rule
 - one active branch per folder
 
 If your repository uses a different integration branch name, update the wording
@@ -169,12 +173,14 @@ in `AGENTS.md` and `docs/ops/git-worktree-layout.md` together.
 - [docs/ops/workflow/execution-quality.md](./docs/ops/workflow/execution-quality.md)
 - [docs/ops/workflow/multi-agent-execution.md](./docs/ops/workflow/multi-agent-execution.md)
 - [docs/ops/workflow/checklist.md](./docs/ops/workflow/checklist.md)
+- [docs/ops/git-worktree-layout.md](./docs/ops/git-worktree-layout.md)
 - [CHANGELOG.md](./CHANGELOG.md)
 - [docs/releases/v0.1.0.md](./docs/releases/v0.1.0.md)
 - [docs/releases/v0.1.1.md](./docs/releases/v0.1.1.md)
 - [.github/workflows/verify.yml](./.github/workflows/verify.yml)
 - [scripts/check-host-workflow-deps.sh](./scripts/check-host-workflow-deps.sh)
 - [scripts/verify-workflow-template.sh](./scripts/verify-workflow-template.sh)
+- [openspec/specs/branch-lifecycle-policy/spec.md](./openspec/specs/branch-lifecycle-policy/spec.md)
 - [openspec/specs/workflow-routing-policy/spec.md](./openspec/specs/workflow-routing-policy/spec.md)
 - [openspec/specs/project-mainline-routing/spec.md](./openspec/specs/project-mainline-routing/spec.md)
 

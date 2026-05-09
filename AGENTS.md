@@ -23,8 +23,12 @@ Default rule:
 - start new implementation work from the latest `main`
 - use a bounded `feat/*` branch for each task or feature
 - merge the finished feature branch back to `main` only after verification
+- after a merged `feat/*` branch is no longer needed, delete the local branch,
+  delete the remote feature branch, and remove its `.worktrees/...` directory
 - use repo-local git worktrees under `.worktrees/` for concurrent branch work
 - keep one active branch per folder
+- treat `lane/*` branches as explicit long-lived support lanes; they are not
+  subject to the bounded `feat/*` cleanup rule by default
 
 Bootstrap exception:
 

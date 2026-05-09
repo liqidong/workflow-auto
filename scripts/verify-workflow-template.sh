@@ -23,8 +23,10 @@ required_files=(
   "docs/ops/workflow/execution-quality.md"
   "docs/ops/workflow/multi-agent-execution.md"
   "docs/ops/workflow/checklist.md"
+  "docs/ops/git-worktree-layout.md"
   "docs/ops/superpowers-capability-adoption.md"
   "scripts/check-host-workflow-deps.sh"
+  "openspec/specs/branch-lifecycle-policy/spec.md"
   "openspec/specs/workflow-routing-policy/spec.md"
   "openspec/specs/project-mainline-routing/spec.md"
 )
@@ -38,6 +40,7 @@ grep -q "gstack stage:" AGENTS.md
 grep -q "workflow-auto" README.md
 grep -q "workflow-base" README.md
 grep -q "badge.svg" README.md
+grep -q "lane/\\*" README.md
 grep -q 'version = "0.1.1"' pyproject.toml
 grep -q "## 0.1.1 - 2026-05-09" CHANGELOG.md
 grep -q "0.1.0 - 2026-05-09" CHANGELOG.md
@@ -59,6 +62,10 @@ grep -q "compatibility shim" .claude/skills/goi-workflow/SKILL.md
 grep -q "openspec archive" .codex/skills/openspec-archive-change/SKILL.md
 grep -q "descriptive analysis" docs/ops/superpowers-capability-adoption.md
 grep -q "Repository: workflow-auto" openspec/config.yaml
+grep -q "delete the local branch" AGENTS.md
+grep -q "lane/\\*" AGENTS.md
+grep -q "git worktree remove .worktrees/feat-my-task" docs/ops/git-worktree-layout.md
+grep -q "feature branches SHALL have an explicit cleanup policy" openspec/specs/branch-lifecycle-policy/spec.md
 
 if rg -n "TypeScript, React, Node.js|e-commerce platform" openspec/config.yaml >/dev/null; then
   echo "Found OpenSpec scaffold residue in openspec/config.yaml" >&2

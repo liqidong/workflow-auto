@@ -30,6 +30,10 @@ Use this checklist when copying the reusable `workflow-base` template out of
   `liqidong/workflow-auto`.
 - Fill in `openspec/specs/project-mainline-routing/spec.md`.
 - Confirm branch naming matches the real integration branch.
+- Confirm bounded `feat/*` branches are treated as short-lived and cleaned up
+  after merge when no longer needed.
+- Confirm any long-lived `lane/*` branches are documented as exceptions to the
+  bounded `feat/*` cleanup rule.
 - Confirm `.agents` stays canonical and `.codex` and `.claude` stay
   compatibility-only.
 - Confirm no domain-specific route names or absolute source-machine paths
